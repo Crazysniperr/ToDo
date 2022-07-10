@@ -45,14 +45,4 @@ input.addEventListener("keypress", function(event) {
 });
 
 
-var myNodelist = document.querySelectorAll(".task");
-myNodelist.onclick = function(){
-    if(this.className.match("task")){
-        myNodelist.className = "done";
-    }
-    else{
-        myNodelist.className = "task";
-    }
-};
-    
     

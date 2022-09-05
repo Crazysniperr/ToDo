@@ -2,13 +2,28 @@ var btnadd = document.getElementById('add-item');
 var list = document.getElementById('item-list');
 var input = document.getElementById('input');
 
+window.addEventListener('load',()=>{
+    todos = JSON.parse(localStorage.getItem('todos')) || [];
+	const nameInput = document.querySelector('#name');
+	const newTodoForm = document.querySelector('#new-todo-form');
 
+	const username = localStorage.getItem('username') || '';
+
+	nameInput.value = username;
+
+	nameInput.addEventListener('change', (e) => {
+		localStorage.setItem('username', e.target.value);
+
+    
+})
+})
 btnadd.onclick = function() {
     if(input.value === ''){
         alert('Please enter a valid input');}
     else{
 
             var inputtext = input.value;
+            localStorage.setItem("item",(inputtext));
             var newElement = document.createElement('li');
             var textnode = document.createTextNode(inputtext);
             newElement.appendChild(textnode);
@@ -40,9 +55,8 @@ input.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
       event.preventDefault();
       btnadd.click();
+      localStorage.getItem("item");
       
     }
 });
 
-
-    
